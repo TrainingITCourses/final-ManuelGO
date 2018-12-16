@@ -1,0 +1,14 @@
+<ng-container>
+  <p>Total de lanzamientos: {{launches.length}}</p><br>
+  Ordenar:
+  <mat-radio-group [(ngModel)]="reverse">
+    <mat-radio-button [value]="false">Antiguos primero</mat-radio-button>
+    <mat-radio-button [value]="true">Recientes primero</mat-radio-button>
+  </mat-radio-group>
+  <br>
+  <div>
+    <ul *ngFor="let launch of launches | orderBy:order:reverse">
+      <li><a routerLink="/launch/{{launch.id}}">{{launch.name}}</a></li> Fecha de lanzamiento: {{launch.westamp | date}}
+    </ul>
+  </div>
+</ng-container>

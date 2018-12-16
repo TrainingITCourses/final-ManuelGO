@@ -1,0 +1,14 @@
+<h1>
+  Lista De Estados Disponibles
+</h1>
+<ng-container *ngIf="launches$ | async as launches">
+  <h2>
+    Cantidad de lanzamientos: {{launches.length | number}}
+  </h2>
+</ng-container>
+
+<ng-container *ngIf="statusList$ | async as list">
+  <app-status-list [statusList]="list">
+
+  </app-status-list>
+</ng-container>

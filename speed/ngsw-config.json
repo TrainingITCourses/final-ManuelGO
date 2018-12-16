@@ -1,0 +1,52 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/icons/**"
+        ]
+      }
+    }
+  ], "dataGroups":[
+    {
+      "name": "cache-first",
+      "urls":[
+        "http://localhost:8080/assets/data/agencies.json",
+        "http://localhost:8080/assets/data/launchstatus.json",
+        "http://localhost:8080/assets/data/missiontypes.json"
+      ],
+      "cacheConfig":{
+        "strategy":"performance",
+        "maxSize":10,
+        "maxAge":"1d"
+      }
+    },
+    {
+      "name": "api-first",
+      "urls":[
+        "http://localhost:8080/assets/data/launches.json"
+      ],
+      "cacheConfig":{
+        "strategy":"freshness",
+        "maxSize":100,
+        "maxAge":"1d",
+        "timeout":"10s"
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+<button (click)="goBack()">Volver</button>
+<br>
+<ng-container *ngIf="launch$ | async as launch">
+  <p>
+    Detalles del lanzamiento <b>{{launch.name}}</b> 
+  </p>
+  <p>
+   <a [href]="launch.rocket.wikiURL" target="_blank">Info en Wikipedia</a>
+  </p>
+</ng-container>

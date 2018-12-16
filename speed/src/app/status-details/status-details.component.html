@@ -1,0 +1,11 @@
+<button (click)="goBack()">Volver</button>
+<br>
+<div *ngIf="status$ | async as status">
+    <h2>
+        Mostrando resultados del estado {{status.name}}
+    </h2>
+</div>
+<ng-container *ngIf="filtered$ | async as launches">
+ <app-launches-list [launches]="launches"></app-launches-list>
+</ng-container>
+
